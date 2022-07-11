@@ -14,34 +14,35 @@
         <img id="loginbg" src="logInBg.jpg" alt="log in">
         <div class="row justify-content-center login">
           <div class="col-xl-5 col-md-8">
-            <form class="bg-white  rounded-5 shadow-5-strong p-5">
+            <form class="bg-white  rounded-5 shadow-5-strong p-5" action="http://localhost/LearningPoint/signUp.php" method="post">
+              <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign Up</h3>
                 <div class="form-outline mb-4">
-                    <label class="form-label" for="formpass" style="margin-left: 0px;">Your Name:</label>
-                    <input type="text" id="formname" class="form-control">
+                    <label class="form-label" for="signupName" style="margin-left: 0px;">Your Full Name:</label>
+                    <input type="text" name="signupName" class="form-control">
                     
                   <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 64px;"></div><div class="form-notch-trailing"></div></div></div>
               <div class="form-outline mb-4">
-                <label class="form-label" for="formemail" style="margin-left: 0px;">Email address:</label>
-                <input type="email" id="formemail" class="form-control">
+                <label class="form-label" for="signupUsername" style="margin-left: 0px;">User Name:</label>
+                <input type="text" name="signupUsername" class="form-control">
                 
               <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 88.8px;"></div><div class="form-notch-trailing"></div></div></div>
               <div class="form-outline mb-4">
-                <label class="form-label" for="formpass" style="margin-left: 0px;">Enter Password:</label>
-                <input type="password" id="formpass" class="form-control">
+                <label class="form-label" for="signupEmail" style="margin-left: 0px;">Email address:</label>
+                <input type="email" name="signupEmail" class="form-control">
                 
               <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 64px;"></div><div class="form-notch-trailing"></div></div></div>
               <div class="form-outline mb-4">
-                <label class="form-label" for="formcpass" style="margin-left: 0px;">Confirm Password:</label>
-                <input type="password" id="formpass" class="form-control">
+                <label class="form-label" for="signupPass" style="margin-left: 0px;">Enter Password:</label>
+                <input type="password" name="signupPass" class="form-control">
                 
               <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 64px;"></div><div class="form-notch-trailing"></div></div></div>
               <div class="form-outline mb-4">
-                <label class="form-label" for="formpass" style="margin-left: 0px;">Institution:</label>
-                <input type="text" id="formins" class="form-control">
+                <label class="form-label" for="signupCpass" style="margin-left: 0px;">Confirm Password:</label>
+                <input type="password" name="signupCpass" class="form-control">
                 
               <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 64px;"></div><div class="form-notch-trailing"></div></div></div>
 
-              <button type="submit" class="btn btn-primary btn-block">Sign Un</button>
+              <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
             </form>
           </div>
         </div>
