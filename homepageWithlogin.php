@@ -1,3 +1,8 @@
+<?php
+$conn = mysqli_connect("localhost", "root", "", "web");
+session_start();
+$username = $_SESSION['username'];
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -27,14 +32,14 @@
                           <li class="nav-item">
                               <a class="nav-link active" href="aboutUs.html">About Us</a>
                           </li>
-                          <!-- <li class="nav-item">
+                          <li class="nav-item">
                               <a class="nav-link active" href="edit.html">Edit</a>
                           </li>
                           <li class="nav-item">
                               <a class="nav-link active" href="upload.html">Upload</a>
-                          </li> -->
+                          </li>
                           <li class="nav-item">
-                              <a class="nav-link active" href="signIn.html">Sign In</a>
+                              <a class="nav-link active" href="http://localhost/LearningPoint/logout.php">Logout</a>
                           </li>
   
                       </ul>
@@ -42,7 +47,7 @@
               </div>
           </nav>
           <div class="homepageDes">
-            <h1 class="hforhome">Get The Best</h1>
+            <h1 class="hforhome">Welcome ,<?php echo strtoupper($username) ?> !</h1>
             <p class="pforhome">Get the best and Easiest way to learn things.We will try to be your best partner.</p>
             </div>
           </div>
