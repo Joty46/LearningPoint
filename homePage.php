@@ -1,3 +1,19 @@
+<?php
+$conn = mysqli_connect("localhost", "root", "", "web");
+session_start();
+$findweb="select * from courses where coursename='Web';";
+$findds="select * from courses where coursename='Data Structure';";
+$findalgo="select * from courses where coursename='Algorithm Analysis';";
+$findoop="select * from courses where coursename='Object Oriented Programming';";
+$findandr="select * from courses where coursename='Android Development';";
+$findpython="select * from courses where coursename='Python';";
+$queryweb=mysqli_query($conn,$findweb);
+$queryds=mysqli_query($conn,$findds);
+$queryalgo=mysqli_query($conn,$findalgo);
+$queryoop=mysqli_query($conn,$findoop);
+$queryandr=mysqli_query($conn,$findandr);
+$querypython=mysqli_query($conn,$findpython);
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -27,12 +43,6 @@
                           <li class="nav-item">
                               <a class="nav-link active" href="aboutUs.html">About Us</a>
                           </li>
-                          <!-- <li class="nav-item">
-                              <a class="nav-link active" href="edit.html">Edit</a>
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link active" href="upload.html">Upload</a>
-                          </li> -->
                           <li class="nav-item">
                               <a class="nav-link active" href="signIn.html">Sign In</a>
                           </li>
@@ -56,10 +66,10 @@
               <div class="card mb-4 text-white bg-dark">
                  <img class="card-img-top" src="cardForHome.png" alt="Card image cap" width="100%" height="225">
                  <div class="card-body">
-                    <h5 class="card-title">WEB</h5>
+                    <h5 class="card-title">WEB </h5>
                     <p class="card-text">Learn everything about web development</p>
-                    <h3>75 Courses</h3>
-                    <a href="" class="btn btn-outline-light btn-sm">Learn Detail</a>
+                    <h3><?php echo mysqli_num_rows($queryweb); ?>  Topics</h3>
+                    <a href="http://localhost/LearningPoint/webtopics.php?role=Web" class="btn btn-outline-light btn-sm web"> Learn Detail</a>
                  </div>
               </div>
            </div>
@@ -67,10 +77,11 @@
             <div class="card mb-4 text-white bg-dark">
                <img class="card-img-top" src="cardForHome.png" alt="Card image cap" width="100%" height="225">
                <div class="card-body">
-                  <h5 class="card-title">Data Structure</h5>
+                  <h5 class="card-title">Data Structure
+                  </h5>
                   <p class="card-text">Learn Easily about Data Structure</p>
-                  <h3>35 Courses</h3>
-                  <a href="" class="btn btn-outline-light btn-sm">Learn Detail</a>
+                  <h3><?php echo mysqli_num_rows($queryds); ?> Topics</h3>
+                  <a href="http://localhost/LearningPoint/webtopics.php?role=Data Structure" class="btn btn-outline-light btn-sm ds">Learn Detail</a>
                </div>
             </div>
          </div>
@@ -78,10 +89,11 @@
           <div class="card mb-4 text-white bg-dark">
              <img class="card-img-top" src="cardForHome.png" alt="Card image cap" width="100%" height="225">
              <div class="card-body">
-                <h5 class="card-title">Algorithm Analysis</h5>
+                <h5 class="card-title">Algorithm Analysis
+                </h5>
                 <p class="card-text">Learn Algorithm easily</p>
-                <h3>23 Courese</h3>
-                <a href="" class="btn btn-outline-light btn-sm">Learn Detail</a>
+                <h3><?php echo mysqli_num_rows($queryalgo); ?> Topics</h3>
+                <a href="http://localhost/LearningPoint/webtopics.php?role=Algorithm Analysis" class="btn btn-outline-light btn-sm" id="aa">Learn Detail</a>
              </div>
           </div>
          </div>
@@ -89,10 +101,11 @@
           <div class="card mb-4 text-white bg-dark">
              <img class="card-img-top" src="cardForHome.png" alt="Card image cap" width="100%" height="225">
              <div class="card-body">
-                <h5 class="card-title">Object oriented programming</h5>
+                <h5 class="card-title">Object Oriented Programming
+                </h5>
                 <p class="card-text">Learn Object oriented programming from basic.</p>
-                <h3>40 Courses</h3>
-                <a href="" class="btn btn-outline-light btn-sm">Learn Detail</a>
+                <h3><?php echo mysqli_num_rows($queryoop); ?> Topics</h3>
+                <a href="http://localhost/LearningPoint/webtopics.php?role=Object Oriented Programming" class="btn btn-outline-light btn-sm" id="oop">Learn Detail</a>
              </div>
           </div>
          </div>
@@ -100,10 +113,11 @@
           <div class="card mb-4 text-white bg-dark">
              <img class="card-img-top" src="cardForHome.png" alt="Card image cap" width="100%" height="225">
              <div class="card-body">
-                <h5 class="card-title">Android development</h5>
+                <h5 class="card-title">Android Development
+                </h5>
                 <p class="card-text">Become a android developer easily.</p>
-                <h3>43 Courses</h3>
-                <a href="" class="btn btn-outline-light btn-sm">Learn Detail</a>
+                <h3><?php echo mysqli_num_rows($queryandr); ?> Topics</h3>
+                <a href="http://localhost/LearningPoint/webtopics.php?role=Android Development" class="btn btn-outline-light btn-sm" id="ad">Learn Detail</a>
              </div>
           </div>
          </div>
@@ -111,10 +125,11 @@
           <div class="card mb-4 text-white bg-dark">
              <img class="card-img-top" src="cardForHome.png" alt="Card image cap" width="100%" height="225">
              <div class="card-body">
-                <h5 class="card-title">Python</h5>
+                <h5 class="card-title">Python
+                </h5>
                 <p class="card-text"> Learn Python</p>
-                <h3>45 Courses</h3>
-                <a href="" class="btn btn-outline-light btn-sm">Learn Detail</a>
+                <h3><?php echo mysqli_num_rows($querypython); ?> Topics</h3>
+                <a href="http://localhost/LearningPoint/webtopics.php?role=Python" class="btn btn-outline-light btn-sm" id="py">Learn Detail</a>
              </div>
           </div>
          </div>
