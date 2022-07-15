@@ -15,13 +15,23 @@ $query=mysqli_query($conn,$find);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="webtopics.css">
+    <style>
+        body{
+            background-color: silver;
+        }
+        h1{
+            padding: 20px;
+        }
+    </style>
 </head>
 <body>
-    <center><h1 padding-top="50px">Topics</h1></center>
+    <center><h1>Topics</h1></center>
     <div id="topicContent">   
     </div>
     <script>
@@ -34,10 +44,13 @@ $query=mysqli_query($conn,$find);
 
     $("#topicContent a").addClass("list-group-item list-group-item-action gap-3 py-3").attr("href","#")
     .attr("aria-current","true").append($("<div/>").addClass("row"));
-    $("#topicContent .row").append($("<div/>").addClass("col-md-12").append($("<h4/>").addClass("topic").text("Topic name")));
+    $("#topicContent .row").css({"background-color": "white"}).append($("<div/>").addClass("col-md-12").append($("<h4/>").addClass("topic").text("Topic name")));
     $("#topicContent .row").append($("<div/>").addClass("col-md-6").append($("<h6/>").addClass("diff").text("Difficulty")));
     $("#topicContent .row").append($("<div/>").addClass("col-md-6").append($("<h6/>").addClass("time").text("10min 25s")));
     $("#topicContent .row").append($("<div/>").addClass("col-md-12").append($("<p/>").addClass("pre").text("Prerquisite")));
+    $("#topicContent .row").append($("<div/>").addClass("col-md-12").append($("<form/>").attr("action","http://localhost/LearningPoint/description.php")
+        .attr("method","POST").append($("<button/>").addClass("btn btn-info").attr("type","submit")
+        .attr("name","id").text("Details"))));
     <?php
         $topicname = array();
         $q = "select topicname from courses where coursename='$coursename';";
@@ -89,6 +102,19 @@ $query=mysqli_query($conn,$find);
         let pre = <?php echo json_encode($pre); ?>;
         $("#topicContent .row .pre").each(function(i) {
             $(this).text(pre[i]);
+        });
+        <?php
+        $uid = array();
+        $q = "select uploadid from courses where coursename='$coursename';";
+        $query = mysqli_query($conn, $q);
+        while ($row = mysqli_fetch_assoc($query)) {
+            array_push($uid, $row["uploadid"]);
+        }
+        ?>
+
+        let uid = <?php echo json_encode($uid); ?>;
+        $("#topicContent .row button").each(function(i) {
+            $(this).attr("value",uid[i]);
         });
     </script>
 </body>
