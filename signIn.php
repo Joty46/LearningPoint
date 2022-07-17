@@ -15,7 +15,7 @@ if (isset($_POST["signinUsername"])) {
             $row = mysqli_fetch_assoc($findquery);
             $_SESSION["username"] = $row['username'];
             $_SESSION["time"] = time();
-            header("Location:admin.html");
+            header("Location:admin.php");
         } 
         else {
             echo "<script>alert('Email or password not correct')

@@ -20,6 +20,7 @@ $querypython=mysqli_query($conn,$findpython);
         <title>my project</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/31a20b87d9.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="css/style.css">
       </head>
     <body>
@@ -41,7 +42,7 @@ $querypython=mysqli_query($conn,$findpython);
                               <a class="nav-link active" href="homePage.html">Home</a>
                           </li>
                           <li class="nav-item">
-                              <a class="nav-link active" href="aboutUs.html">About Us</a>
+                              <a class="nav-link active" href="#aboutus">About Us</a>
                           </li>
                           <li class="nav-item">
                               <a class="nav-link active" href="signIn.html">Sign In</a>
@@ -136,5 +137,30 @@ $querypython=mysqli_query($conn,$findpython);
           
          </div>
        </div>
+       <div id="aboutus">
+            <section id="footer">
+               <div class="container">
+                     <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+                        <ul class="list-unstyled list-inline social text-center">
+                                 <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                 <li class="list-inline-item"><a href="https://github.com/Joty46"><i class="fa-brands fa-github"></i></a></li>
+                                 <li class="list-inline-item"><a href="#"><i class="fa-brands fa-linkedin"></i></li>
+                                 <li class="list-inline-item"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                 <li class="list-inline-item"><a href="taslimajoty14@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a></li>
+                           </ul>
+                        </div>
+                        <hr>
+                     </div>
+                     <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                           <p><u><a href="homePage.php">Learning Point</a></u> is a Registered MSP/ISO of Elavon, Inc. Georgia [a wholly owned subsidiary of U.S. Bancorp, Minneapolis, MN]</p>
+                           <p class="h6">© All right Reversed.<a class="text-green ml-2" href="https://www.sunlimetech.com" target="_blank">Sunlimetech</a></p>
+                        </div>
+                        <hr>
+                     </div>
+               </div>
+            </section>
+         </div>
     </body>
 </html>

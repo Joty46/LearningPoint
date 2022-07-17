@@ -22,7 +22,8 @@ $query=mysqli_query($conn,$find);
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="webtopics.css">
     <style>
-        body{
+        body
+        {
             background-color: silver;
         }
         h1{
@@ -43,7 +44,7 @@ $query=mysqli_query($conn,$find);
     $("#topicContent a").addClass("hello");
 
     $("#topicContent a").addClass("list-group-item list-group-item-action gap-3 py-3").attr("href","#")
-    .attr("aria-current","true").append($("<div/>").addClass("row"));
+    .attr("aria-current","true").append($("<div/>").addClass("row p-3"));
     $("#topicContent .row").css({"background-color": "white"}).append($("<div/>").addClass("col-md-12").append($("<h4/>").addClass("topic").text("Topic name")));
     $("#topicContent .row").append($("<div/>").addClass("col-md-6").append($("<h6/>").addClass("diff").text("Difficulty")));
     $("#topicContent .row").append($("<div/>").addClass("col-md-6").append($("<h6/>").addClass("time").text("10min 25s")));
