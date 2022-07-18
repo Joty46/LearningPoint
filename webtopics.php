@@ -3,8 +3,7 @@ $conn = mysqli_connect("localhost", "root", "", "web");
 session_start();
 $_SESSION['role']=$_GET['role'];
 $coursename=$_SESSION['role'];
-$find="select * from courses where coursename='$coursename';";
-$query=mysqli_query($conn,$find);
+
 ?>
 
 
@@ -36,87 +35,17 @@ $query=mysqli_query($conn,$find);
     <div id="topicContent">   
     </div>
     <script>
-
-    for(let i=0;i<<?php echo mysqli_num_rows($query); ?>;i++){
-        $("#topicContent").append("<a></a>");
-    }
-  
-    $("#topicContent a").addClass("hello");
-
-    $("#topicContent a").addClass("list-group-item list-group-item-action gap-3 py-3").attr("href","#")
-    .attr("aria-current","true").append($("<div/>").addClass("row p-3"));
-    $("#topicContent .row").css({"background-color": "white"}).append($("<div/>").addClass("col-md-12").append($("<h4/>").addClass("topic").text("Topic name")));
-    $("#topicContent .row").append($("<div/>").addClass("col-md-6").append($("<h6/>").addClass("diff").text("Difficulty")));
-    $("#topicContent .row").append($("<div/>").addClass("col-md-6").append($("<h6/>").addClass("time").text("10min 25s")));
-    $("#topicContent .row").append($("<div/>").addClass("col-md-12").append($("<p/>").addClass("pre").text("Prerquisite")));
-    $("#topicContent .row").append($("<div/>").addClass("col-md-12").append($("<form/>").attr("action","http://localhost/LearningPoint/description.php")
-        .attr("method","POST").append($("<button/>").addClass("btn btn-info").attr("type","submit")
-        .attr("name","id").text("Details"))));
     <?php
-        $topicname = array();
-        $q = "select topicname from courses where coursename='$coursename';";
-        $query = mysqli_query($conn, $q);
-        while ($row = mysqli_fetch_assoc($query)) {
-            array_push($topicname, $row["topicname"]);
-        }
-        ?>
+    $find="select * from courses where coursename='$coursename';";
+    $query=mysqli_query($conn,$find);
+    while($row=mysqli_fetch_assoc($query))
+    {
+    ?>
+    var r='<a class="hello list-group-item list-group-item-action gap-3 py-3" href="#" aria-current="true"><div class="row p-3" style="background-color: white;"><div class="col-md-12"><h4 class="topic"><?php echo $row["topicname"]; ?></h4></div><div class="col-md-6"><h6 class="diff"><?php echo $row["difficulty"]; ?></h6></div><div class="col-md-6"><h6 class="time"><?php echo $row["apxtime"]; ?></h6></div><div class="col-md-12"><p class="pre"><?php echo $row["preperq"]; ?></p></div><div class="col-md-12"><form action="http://localhost/LearningPoint/description.php" method="POST"><button class="btn btn-info" type="submit" name="id" value="10">Details</button></form></div></div></a>';
 
-        let topic = <?php echo json_encode($topicname); ?>;
-        $("#topicContent .row .topic").each(function(i) {
-            $(this).text(topic[i]);
-        });
-        <?php
-        $diff = array();
-        $q = "select difficulty from courses where coursename='$coursename';";
-        $query = mysqli_query($conn, $q);
-        while ($row = mysqli_fetch_assoc($query)) {
-            array_push($diff, $row["difficulty"]);
-        }
-        ?>
-
-        let diffi = <?php echo json_encode($diff); ?>;
-        $("#topicContent .row .diff").each(function(i) {
-            $(this).text(diffi[i]);
-        });
-        <?php
-        $time = array();
-        $q = "select apxtime from courses where coursename='$coursename';";
-        $query = mysqli_query($conn, $q);
-        while ($row = mysqli_fetch_assoc($query)) {
-            array_push($time, $row["apxtime"]);
-        }
-        ?>
-
-        let tm = <?php echo json_encode($time); ?>;
-        $("#topicContent .row .time").each(function(i) {
-            $(this).text(tm[i]);
-        });
-        <?php
-        $pre = array();
-        $q = "select preperq from courses where coursename='$coursename';";
-        $query = mysqli_query($conn, $q);
-        while ($row = mysqli_fetch_assoc($query)) {
-            array_push($pre, $row["preperq"]);
-        }
-        ?>
-
-        let pre = <?php echo json_encode($pre); ?>;
-        $("#topicContent .row .pre").each(function(i) {
-            $(this).text(pre[i]);
-        });
-        <?php
-        $uid = array();
-        $q = "select uploadid from courses where coursename='$coursename';";
-        $query = mysqli_query($conn, $q);
-        while ($row = mysqli_fetch_assoc($query)) {
-            array_push($uid, $row["uploadid"]);
-        }
-        ?>
-
-        let uid = <?php echo json_encode($uid); ?>;
-        $("#topicContent .row button").each(function(i) {
-            $(this).attr("value",uid[i]);
-        });
+    $("#topicContent").append(r);
+        <?php } ?>
+    
     </script>
 </body>
 </html>

@@ -45,7 +45,7 @@ $querypython=mysqli_query($conn,$findpython);
                               <a class="nav-link active" href="#aboutus">About Us</a>
                           </li>
                           <li class="nav-item">
-                              <a class="nav-link active" href="signIn.html">Sign In</a>
+                              <a class="nav-link active" href="signIn.php">Sign In</a>
                           </li>
   
                       </ul>

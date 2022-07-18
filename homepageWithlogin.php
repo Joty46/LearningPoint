@@ -1,7 +1,16 @@
 <?php
 $conn = mysqli_connect("localhost", "root", "", "web");
 session_start();
-$username = $_SESSION['username'];
+if(time()-$_SESSION['time']>=600)
+{
+   session_unset();
+   session_destroy();
+   header("Location:homePage.php");
+}
+else
+{
+   $username = $_SESSION['username'];
+}
 $findweb="select * from courses where coursename='Web';";
 $findds="select * from courses where coursename='Data Structure';";
 $findalgo="select * from courses where coursename='Algorithm Analysis';";
