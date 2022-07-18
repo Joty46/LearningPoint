@@ -41,7 +41,7 @@ $coursename=$_SESSION['role'];
     while($row=mysqli_fetch_assoc($query))
     {
     ?>
-    var r='<a class="hello list-group-item list-group-item-action gap-3 py-3" href="#" aria-current="true"><div class="row p-3" style="background-color: white;"><div class="col-md-12"><h4 class="topic"><?php echo $row["topicname"]; ?></h4></div><div class="col-md-6"><h6 class="diff"><?php echo $row["difficulty"]; ?></h6></div><div class="col-md-6"><h6 class="time"><?php echo $row["apxtime"]; ?></h6></div><div class="col-md-12"><p class="pre"><?php echo $row["preperq"]; ?></p></div><div class="col-md-12"><form action="http://localhost/LearningPoint/description.php" method="POST"><button class="btn btn-info" type="submit" name="id" value="10">Details</button></form></div></div></a>';
+    var r='<a class="hello list-group-item list-group-item-action gap-3 py-3" href="#" aria-current="true"><div class="row p-3" style="background-color: white;"><div class="col-md-12"><h4 class="topic"><?php echo $row["topicname"]; ?></h4></div><div class="col-md-6"><h6 class="diff"><?php echo $row["difficulty"]; ?></h6></div><div class="col-md-6"><h6 class="time"><?php echo $row["apxtime"]; ?></h6></div><div class="col-md-12"><p class="pre"><?php echo $row["preperq"]; ?></p></div><div class="col-md-12"><form action="http://localhost/LearningPoint/description.php" method="POST"><button class="btn btn-info" type="submit" name="id" value=<?php echo $row["uploadid"]; ?>>Details</button></form></div></div></a>';
 
     $("#topicContent").append(r);
         <?php } ?>
