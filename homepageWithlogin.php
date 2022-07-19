@@ -74,7 +74,7 @@ $querypython=mysqli_query($conn,$findpython);
         </div> 
         
         <div class="detaileddes">
-          <div class="headForDes"><h1>Our Catagories</h1></div>
+          <div class="headForDes"><h1>Our Categories</h1></div>
           <div class="row">
             <div class="col-md-4 ">
               <div class="card mb-4 text-white bg-dark">
